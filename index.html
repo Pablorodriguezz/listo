@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Para Carmen</title>
+</head>
+<body>
+    <div class="valentines-day-card">
+        <input id="open" type="checkbox">
+        <label class="open" for="open"></label>
+        <div class="card-front">
+            <div class="note">Click para Abrir</div>
+        </div>
+        
+        <div class="card-inside">
+            <div class="reasons-container">
+                <h2>Razones por las que te quiero, Carmen</h2>
+                <ul id="reasons-list"></ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.1/dist/confetti.browser.min.js"></script>
+    <script>
+        document.getElementById('open').addEventListener('change', function() {
+            if (this.checked) {
+                document.querySelector('.note').style.display = 'none';
+                const reasons = [
+                    "Me haces sentir especial", "Siempre estás ahí para mí", "Amas los videojuegos", "Compartimos aventuras", 
+                    "Me haces reír", "Eres mi compañera de vida", "Eres generosa", "Me cuidas", "Eres hermosa", "Eres inteligente",
+                    "Tus abrazos son mi lugar favorito", "Siempre crees en mí", "Eres espontánea", "Amo viajar contigo", 
+                    "Me motivas a mejorar", "Eres dulce y fuerte", "Amo verte sonreír", "Eres mi mejor amiga y amor", 
+                    "Cada día contigo es especial", "Tus detalles me enamoran", "Eres divertida", "Siempre quieres aprender",
+                    "No me imagino un futuro sin ti", "Me inspiras", "Tu risa es mi sonido favorito",
+                    "Me encanta verte emocionada", "Viajar contigo es mágico", "Adoro cómo me miras", "Eres mi paz",
+                    "Me haces sentir amado", "Me motivas a salir de mi zona de confort", "Amo descubrir el mundo contigo",
+                    "Cada día me enamoro más de ti", "Eres mi confidente", "Me encanta que siempre seas tú misma",
+                    "Tu alegría es contagiosa", "No hay nadie como tú", "Siempre piensas en los demás", "Eres creativa",
+                    "Compartimos sueños juntos", "Tu amor es lo mejor que tengo", "Adoro nuestra historia juntos",
+                    "Haces que el tiempo vuele", "Siempre sabes qué decir", "Me das tranquilidad", "Eres valiente",
+                    "Eres la mejor compañera de vida", "Me siento completo contigo", "Nunca me canso de hablar contigo",
+                    "Amo nuestras locuras", "Tus besos son mi debilidad", "Cada viaje contigo es inolvidable"
+                ];
+                
+                const list = document.getElementById('reasons-list');
+                reasons.forEach(reason => {
+                    const li = document.createElement('li');
+                    li.textContent = reason;
+                    list.appendChild(li);
+                });
+                
+                confetti({
+                    particleCount: 200,
+                    spread: 80,
+                    origin: { x: 0.5, y: 0.5 }
+                });
+            }
+        });
+    </script>
+</body>
+</html>   
+
